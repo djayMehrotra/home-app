@@ -1,0 +1,17 @@
+<!-- <app-grid></app-grid> -->
+ <div class="app-container" [class.sidebar-expanded]="sidebarExpanded">
+      <app-sidebar 
+        [expanded]="sidebarExpanded" 
+        [pinned]="sidebarPinned"
+        (expandChange)="onExpandChange($event)"
+        (pinnedChange)="onPinnedChange($event)">
+      </app-sidebar>
+      <div class="main-content">
+        <app-header 
+          [sidebarExpanded]="sidebarExpanded"
+          [sidebarPinned]="sidebarPinned"
+          (toggleSidebar)="toggleSidebar()">
+        </app-header>
+        <app-content></app-content>
+      </div>
+    </div>

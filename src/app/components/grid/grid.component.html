@@ -1,0 +1,23 @@
+<div class="grid-container">
+  <ag-grid-angular
+    class="ag-theme-alpine"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    [defaultColDef]="defaultColDef"
+    [rowSelection]="'multiple'"
+    [suppressRowClickSelection]="true"
+    (gridReady)="onGridReady($event)"
+    (selectionChanged)="onSelectionChanged($event)"
+    domLayout="autoHeight"
+    [pagination]="true"
+    [paginationPageSize]="10">
+  </ag-grid-angular>
+  
+  <app-selection-popup
+    *ngIf="showPopup"
+    [count]="selectedCount"
+    [style.left.px]="popupPosition.x"
+    [style.top.px]="popupPosition.y"
+    (clearSelection)="clearSelection()">
+  </app-selection-popup>
+</div>

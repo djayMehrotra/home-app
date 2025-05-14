@@ -1,0 +1,51 @@
+<div 
+      class="sidebar" 
+      [class.expanded]="expanded"
+      [class.pinned]="pinned"
+      (mouseenter)="onMouseEnter()"
+      (mouseleave)="onMouseLeave()"
+      [@sidebarState]="expanded ? 'expanded' : 'collapsed'">
+      
+      <div class="sidebar-header">
+        <div class="logo-container">
+          <span class="logo-icon">A</span>
+          <span class="logo-text" *ngIf="expanded">AppName</span>
+        </div>
+        <button 
+          *ngIf="expanded" 
+          class="pin-button" 
+          (click)="togglePin()" 
+          [class.active]="pinned"
+          aria-label="Pin sidebar">
+          <i class="pin-icon" [class.pinned]="pinned"></i>
+        </button>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <ul class="nav-list">
+          <li 
+            *ngFor="let item of navigationItems" 
+            class="nav-item" 
+            [class.active]="item.active">
+            <a class="nav-link" [title]="item.label">
+              <i class="nav-icon" [class]="item.icon"></i>
+              <span class="nav-label" *ngIf="expanded">{{ item.label }}</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <div class="user-info" *ngIf="expanded">
+          <div class="user-avatar">U</div>
+          <div class="user-details">
+            <p class="user-name">User Name</p>
+            <p class="user-role">Admin</p>
+          </div>
+        </div>
+        <button class="settings-button" aria-label="Settings">
+          <i class="settings-icon"></i>
+          <span *ngIf="expanded">Settings</span>
+        </button>
+      </div>
+    </div>

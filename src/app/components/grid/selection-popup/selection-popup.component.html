@@ -1,0 +1,10 @@
+<div class="selection-popup">
+  <div class="selection-count">
+    <span class="count">{{ count }}</span>
+    <span class="label">{{ count === 1 ? 'item' : 'items' }} selected</span>
+  </div>
+  <div class="selection-actions">
+    <button class="action-button primary">Action</button>
+    <button class="action-button" (click)="onClearClick()">Clear</button>
+  </div>
+</div>
